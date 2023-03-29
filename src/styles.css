@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+@import 'ngx-toastr/toastr';
+
+@import "node_modules/@costlydeveloper/ngx-awesome-popup/styles/theme";
+
+.c-pointer{
+    cursor: pointer;
+}
+
+.m-t-10{
+    margin-top: 10px;
+}
+
+.m-t-20{
+    margin-top: 20px;
+}
+
+.m-t-30{
+    margin-top: 30px;
+}
+
+.m-t-40{
+    margin-top: 40px;
+}
+
+.m-l-5{
+    margin-left: 5px;
+}
+
+.m-l-20{
+    margin-left: 20px;
+}
+
+
+.s-b{
+    justify-content: space-between;
+}
+
+.d-flex{
+    display: flex !important;
+}
+
+.red{
+    color: red;
+}
+
+.blue{
+    color: #0b5ed7;
+}
+
+.white{
+    color: white;
+}
+
+.icon{
+    size: 25px;
+}
