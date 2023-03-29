@@ -14,6 +14,12 @@
     margin-bottom: 20px;
 }
 
+.cover {
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+}
+
 .container-image {
     display: flex;
     flex-direction: column;

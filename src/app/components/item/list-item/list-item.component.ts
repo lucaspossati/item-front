@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ConfirmBoxEvokeService } from '@costlydeveloper/ngx-awesome-popup';
 import { ToastrService } from 'ngx-toastr';
@@ -29,7 +30,8 @@ export class ListItemComponent implements OnInit {
     private itemService: ItemService,
     private router: Router,
     private confirmBoxEvokeService: ConfirmBoxEvokeService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private _sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
@@ -40,11 +42,16 @@ export class ListItemComponent implements OnInit {
     this.itemService.getList(this.filter).subscribe({
       next: (resp) => {
         this.itemList = resp;
+        
       }, 
       error: (e) => {
         this.itemList = [];
       }, 
     });
+  }
+
+  byPassSecurity(base64: string){
+    return this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' + base64);
   }
 
   updateList(event: any){
@@ -61,28 +68,27 @@ export class ListItemComponent implements OnInit {
     const subscription = this.confirmBoxEvokeService.danger('Alert!', 'Are you sure you want to delete the item?', 'Confirm', 'Decline')
       .subscribe({
         next: (resp) => {
-          this.itemService.remove(itemCode).subscribe((resp: any) => {
-            this.itemList = this.itemList.filter(x => x.itemCode != itemCode);
-            this.toastr.success('Successfully deleted item', 'Success');
-          });
+          if(resp.success){
+            this.itemService.remove(itemCode).subscribe((resp: any) => {
+              this.itemList = this.itemList.filter(x => x.itemCode != itemCode);
+              this.toastr.success('Successfully deleted item', 'Success');
+            });
+          }
         }
       });
   
     setTimeout(() => {
       subscription.unsubscribe();
     }, 2000);
-    
-    
-    
   }
 
   edit(itemCode: string){
-    this.router.navigate(['/edit/' + itemCode]);
+    this.router.navigate(['/item/' + itemCode]);
   }
 
   cutDescription(item: Item){
-    if(item.description.length > 20)
-      item.description = item.description.substring(0,20) + '...';
+    if(item.description.length > 0)
+      item.description = item.description.substring(0,60) + '...';
 
     return item.description;
   }

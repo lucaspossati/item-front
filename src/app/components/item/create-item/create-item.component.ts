@@ -31,7 +31,6 @@ export class CreateItemComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private itemService: ItemService,
-    private notifierService: NotifierService,
     private _sanitizer: DomSanitizer,
     private toastr: ToastrService
   ) { }
@@ -95,7 +94,6 @@ export class CreateItemComponent implements OnInit {
   }
 
   save() {
-
     if (this.formItem.invalid) {
       this.toastr.error('Fill in all required fields', 'Error');
       return;
@@ -113,7 +111,13 @@ export class CreateItemComponent implements OnInit {
 
     this.obs.subscribe({
       next: (resp: any) => {
-        this.toastr.success('Item updated successfully', 'Success');
+        this.toastr.success(this.itemCode == undefined ? 'Item created successfully' : 'Item updated successfully', 'Success');
+
+        if(this.itemCode == undefined){
+          setTimeout(() => {
+            this.router.navigate(['/'])
+          }, 3000);
+        }
       }, 
       error: (e: any) => {
         e.error.errors.forEach((error : Error) => {
