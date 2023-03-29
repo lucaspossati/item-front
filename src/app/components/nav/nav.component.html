@@ -15,7 +15,7 @@
       <div class="sl-nav">
         Language:
         <ul>
-          <li><b>{{languageLong}} </b> <i class="sl-flag flag-usa"><div id="english" class="active"></div></i>
+          <li><b>{{languageLong}} </b> <i class="sl-flag" ngClass="{{getFlags()}}"><div id="english" class="active"></div></i>
             <div class="triangle"></div>
             <ul>
               <li (click)="changeLanguage('en')">

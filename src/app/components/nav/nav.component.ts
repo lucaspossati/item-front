@@ -18,19 +18,35 @@ export class NavComponent implements OnInit {
     this.languageLong = this.getLanguageLong(this.lang) || 'English';
   }
 
-  getLanguageLong(lang: string) {
+  getLanguageLong(lang: string): string {
     switch(lang) { 
       case 'en':
-        return 'English';
+        return 'English ';
 
       case  'de':
-        return 'Deutsch';
+        return 'Deutsch ';
 
       case 'spa':
-        return 'Español';
+        return 'Español ';
 
       default:
-        return 'English';
+        return 'English ';
+    }
+  }
+
+  getFlags(): string {
+    switch(this.lang) { 
+      case 'en':
+        return 'flag-usa';
+
+      case  'de':
+        return 'flag-de';
+
+      case 'spa':
+        return 'flag-spa';
+
+      default:
+        return 'flag-usa';
     }
   }
 
