@@ -4,24 +4,24 @@
 
 <div>
   <label>Filter</label>
-  <input (input)="updateList($event.target)" type="text" class="form-control" placeholder="Item code or Description">
+  <input (input)="updateList($event.target)" type="text" class="form-control" placeholder="{{'Item_Code_Description' | translate}}">
 </div>
 
 <button type="button" class="btn btn-primary m-t-20" [routerLink]="['/item']" >
-  New Item 
+ {{'New_Item' | translate}}
   <i class="bi bi-plus"></i>
 </button>
 
 <table class="table table-bordered m-t-20">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Image</th>
-      <th scope="col">Item Code</th>
-      <th scope="col">Description</th>
-      <th scope="col">Active</th>
-      <th scope="col">Sales Item</th>
-      <th scope="col">Stock Item</th>
-      <th scope="col">Actions</th>
+      <th scope="col">{{'Image' | translate}}</th>
+      <th scope="col">{{'Item_Code' | translate}}</th>
+      <th scope="col">{{'Description' | translate}}</th>
+      <th scope="col">{{'Active' | translate}}</th>
+      <th scope="col">{{'Sales_Item' | translate}}</th>
+      <th scope="col">{{'Stock_Item' | translate}}</th>
+      <th scope="col">{{'Actions' | translate}}</th>
     </tr>
   </thead>
   <tbody>

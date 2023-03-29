@@ -1,12 +1,38 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
  <div class="container" >
-  <a routerLink="" class="navbar-brand c-p" href="#">Home <i class="bi bi-house-door"></i></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-    </ul>
+  <div class="col-lg-6">
+    <a routerLink="" class="navbar-brand c-p" href="#">{{'Home' | translate}} <i class="bi bi-house-door"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+      </ul>
+    </div>
   </div>
+  <div class="col-lg-6">
+    <div class="nav-wrapper">
+      <div class="sl-nav">
+        Language:
+        <ul>
+          <li><b>{{languageLong}} </b> <i class="sl-flag flag-usa"><div id="english" class="active"></div></i>
+            <div class="triangle"></div>
+            <ul>
+              <li (click)="changeLanguage('en')">
+                <i class="sl-flag flag-usa"><div id="english" class="active"></div></i> <span>English</span>
+              </li>
+              <li (click)="changeLanguage('de')">
+                <i class="sl-flag flag-de"><div id="germany"></div></i> <span>Deutsch</span>
+              </li>
+              <li (click)="changeLanguage('spa')">
+                <i class="sl-flag flag-spa"><div id="spanish"></div></i><span>Español</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
  </div>
 </nav>

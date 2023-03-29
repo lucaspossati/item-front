@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +14,9 @@ import { ListItemComponent } from './components/item/list-item/list-item.compone
 import { TitleComponent } from './components/title/title.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient} from '@angular/common/http';
 
 import {
   NgxAwesomePopupModule,
@@ -21,6 +24,7 @@ import {
   ConfirmBoxConfigModule,
   ToastNotificationConfigModule
 } from '@costlydeveloper/ngx-awesome-popup';
+import { LanguageInterceptor } from './interceptors/language.interceptor';
 
 @NgModule({
   declarations: [
@@ -43,12 +47,29 @@ import {
     NgxAwesomePopupModule.forRoot(),
     DialogConfigModule.forRoot(),
     ConfirmBoxConfigModule.forRoot(),
-    ToastNotificationConfigModule.forRoot()
+    ToastNotificationConfigModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
   ],
   exports:[
     NotifierModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LanguageInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}

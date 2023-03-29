@@ -1,0 +1,25 @@
+{
+    "New_Item": "Nuevo artículo",
+    "Filter": "Filtrar",
+    "Item_Code_Description": "Código de artículo o descripción",
+    "Home": "Hogar",
+    "Item": "Artículo",
+    "Image": "Imagen",
+    "Item_Code": "Código del objeto",
+    "Description": "Descripción",
+    "Active": "Activo",
+    "Sales_Item": "Artículo de venta",
+    "Stock_Item": "Artículo en inventario",
+    "Actions": "Comportamiento",
+
+    "Minimum_Inventory": "Inventario Mínimo",
+    "Maximum_Inventory": "Inventario Máximo",
+    "Manage_Item_By": "Administrar artículo por",
+    "Customer_description": "Descripción del cliente",
+    "Remarks": "Observaciones",
+    "Barcode": "Código de barras",
+    "Purchased_Item": "Artículo comprado",
+    "Back": "Atrás",
+    "Register": "Registrarse",
+    "Update": "Actualizar"
+}

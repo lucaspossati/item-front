@@ -12,7 +12,7 @@
           accept="image/*"
           (change)="uploadImage($event)"
         />
-        <label class="image" for="img"><i class="bi bi-upload"></i> Upload <span class="required">*</span></label>
+        <label class="image" for="img"><i class="bi bi-upload"></i> {{'Upload' | translate}} <span class="required">*</span></label>
       </div>
     </div>
     
@@ -22,28 +22,28 @@
 
     <div class="col-lg-3">
       <div class="form-group">
-        <label>Item Code<span class="required">*</span></label>
+        <label>{{'Item_Code' | translate}}<span class="required">*</span></label>
         <input formControlName="itemCode" type="text" class="form-control" [readonly]="itemToEdit != null">
       </div>
     </div>
 
     <div class="col-lg-3">
       <div class="form-group">
-        <label>Minimum Inventory<span class="required">*</span></label>
+        <label>{{'Minimum_Inventory' | translate}}<span class="required">*</span></label>
         <input formControlName="minimumInventory" type="number" class="form-control">
       </div>
     </div>
 
     <div class="col-lg-3">
       <div class="form-group">
-        <label>Maximum Inventory<span class="required">*</span></label>
+        <label>{{'Maximum_Inventory' | translate}}<span class="required">*</span></label>
         <input formControlName="maximumInventory" type="number" class="form-control">
       </div>
     </div>
 
     <div class="col-lg-3">
       <div class="form-group">
-        <label>Manage Item By<span class="required">*</span></label>
+        <label>{{'Manage_Item_By'  | translate}}<span class="required">*</span></label>
         <select class="form-select" formControlName="manageItemBy">
           <option *ngFor="let status of metadata.types" [value]="status.value">
             {{ status.text }}
@@ -56,28 +56,28 @@
 
   <div class="row">
     <div class="form-group">
-      <label>Description<span class="required">*</span></label>
+      <label>{{'Description' | translate}}<span class="required">*</span></label>
       <textarea formControlName="description" rows="3" class="form-control"></textarea>
     </div>
   </div>
 
   <div class="row">
     <div class="form-group">
-      <label>Customer description</label>
+      <label>{{'Customer_description' | translate}}</label>
       <textarea formControlName="customerDescription" rows="3" class="form-control"></textarea>
     </div>
   </div>
 
   <div class="row">
     <div class="form-group">
-      <label>Remarks</label>
+      <label>{{'Remarks' | translate}}</label>
       <textarea formControlName="remarks" rows="3" class="form-control"></textarea>
     </div>
   </div>
 
   <div class="row">
     <div class="form-group">
-      <label>Barcode<span class="required">*</span></label>
+      <label>{{'Barcode' | translate}}<span class="required">*</span></label>
       <input formControlName="barcode" type="text" class="form-control">
     </div>
   </div>
@@ -86,28 +86,28 @@
     <div class="col-md-2">
       <div class="custom-control custom-switch">
         <input type="checkbox" class="custom-control-input" formControlName="active" id="active" value="">
-        <label class="custom-control-label" for="active">Active<span class="required">*</span></label>
+        <label class="custom-control-label" for="active">{{'Active' | translate}}<span class="required">*</span></label>
       </div>
     </div>
     
     <div class="col-md-2">
       <div class="custom-control custom-switch">
         <input type="checkbox" class="custom-control-input" formControlName="salesItem" id="salesItem" value="">
-        <label class="custom-control-label" for="salesItem">Sales Item<span class="required">*</span></label>
+        <label class="custom-control-label" for="salesItem">{{'Sales_Item' | translate}}<span class="required">*</span></label>
       </div>
     </div>
 
     <div class="col-md-2">
       <div class="custom-control custom-switch">
         <input type="checkbox" class="custom-control-input" formControlName="stockItem" id="stockItem" value="">
-        <label class="custom-control-label" for="stockItem">Stock Item<span class="required">*</span></label>
+        <label class="custom-control-label" for="stockItem">{{'Stock_Item' | translate}}<span class="required">*</span></label>
       </div>
     </div>
 
     <div class="col-md-2">
       <div class="custom-control custom-switch">
         <input type="checkbox" class="custom-control-input" formControlName="purchasedItem" id="purchasedItem" value="">
-        <label class="custom-control-label" for="purchasedItem">Purchased Item<span class="required">*</span></label>
+        <label class="custom-control-label" for="purchasedItem">{{'Purchased_Item' | translate}}<span class="required">*</span></label>
       </div>
     </div>
     
@@ -115,8 +115,8 @@
   
 
   <div class="mgn-top-50 mgn-bt-20 s-b d-flex">
-    <button type="button" class="btn btn-primary c-p" [routerLink]="['/']"><i class="bi bi-arrow-left-short"></i>  Back </button>
-    <button type="button" class="btn btn-success c-p" (click)="save()" >{{itemCode != null ? 'Update  ' : 'Register  '}} 
+    <button type="button" class="btn btn-primary c-p" [routerLink]="['/']"><i class="bi bi-arrow-left-short"></i>  {{'Back' | translate}} </button>
+    <button type="button" class="btn btn-success c-p" (click)="save()" >{{itemCode != null ? ('Update' | translate) : ('Register' | translate)}} 
       <i class="{{itemCode != null ? 'bi bi-arrow-clockwise' : 'bi bi-upload'}}"></i>
     </button>
   </div>

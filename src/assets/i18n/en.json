@@ -1,0 +1,25 @@
+{
+    "New_Item": "New Item",
+    "Filter": "Filter",
+    "Item_Code_Description": "Item code or Description",
+    "Home": "Home",
+    "Item": "Item",
+    "Image": "Image",
+    "Item_Code": "Item Code",
+    "Description": "Description",
+    "Active": "Active",
+    "Sales_Item": "Sales Item",
+    "Stock_Item": "Stock Item",
+    "Actions": "Actions",
+
+    "Minimum_Inventory": "Minimum Inventory",
+    "Maximum_Inventory": "Maximum Inventory",
+    "Manage_Item_By": "Manage Item By",
+    "Customer_description": "Customer description",
+    "Remarks": "Remarks",
+    "Barcode": "Barcode",
+    "Purchased_Item": "Purchased Item",
+    "Back": "Back",
+    "Register": "Register",
+    "Update": "Update"
+}

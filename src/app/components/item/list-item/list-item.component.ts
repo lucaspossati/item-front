@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -31,10 +32,13 @@ export class ListItemComponent implements OnInit {
     private router: Router,
     private confirmBoxEvokeService: ConfirmBoxEvokeService,
     private toastr: ToastrService,
-    private _sanitizer: DomSanitizer
+    private _sanitizer: DomSanitizer,
+    private httpClient: HttpClient
   ) { }
 
   ngOnInit() {
+    
+
     this.getList();
   }
 
