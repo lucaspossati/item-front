@@ -1,6 +1,6 @@
 ## Items - List
 <p align="center">
-  <img src="https://i.ibb.co/dMXSWBS/list-items-new.png" width="1100">
+  <img src="https://i.ibb.co/RD4yg6V/list-items-new-min.png" width="1100">
 <p>
 
 ## Items - List - Permission to delete
