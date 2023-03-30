@@ -120,9 +120,14 @@ export class CreateItemComponent implements OnInit {
         }
       }, 
       error: (e: any) => {
-        e.error.errors.forEach((error : Error) => {
-          this.toastr.error(error.errorMessage, 'Error');
-        });
+        if(e.status == 400){
+          e.error.errors.forEach((error : Error) => {
+            this.toastr.error(error.errorMessage, 'Error');
+          });
+        }
+        else{
+          this.toastr.error("Internal error", 'Error');
+        }
       },
     });
   }
