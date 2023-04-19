@@ -116,7 +116,7 @@
 
   <div class="mgn-top-50 mgn-bt-20 s-b d-flex">
     <button type="button" class="btn btn-primary c-p" [routerLink]="['/']"><i class="bi bi-arrow-left-short"></i>  {{'Back' | translate}} </button>
-    <button type="button" class="btn btn-success c-p" (click)="save()" >{{itemCode != null ? ('Update' | translate) : ('Register' | translate)}} 
+    <button [disabled]="loading" type="button" class="btn btn-success c-p" (click)="save()" >{{itemCode != null ? ('Update' | translate) : ('Register' | translate)}} 
       <i class="{{itemCode != null ? 'bi bi-arrow-clockwise' : 'bi bi-upload'}}"></i>
     </button>
   </div>

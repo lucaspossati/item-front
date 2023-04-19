@@ -91,8 +91,8 @@ export class ListItemComponent implements OnInit {
   }
 
   cutDescription(item: Item){
-    if(item.description.length > 0)
-      item.description = item.description.substring(0,60) + '...';
+    if(item.description.length > 150)
+      item.description = item.description.substring(0,150) + '...';
 
     return item.description;
   }

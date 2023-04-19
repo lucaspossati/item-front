@@ -22,6 +22,7 @@ export class CreateItemComponent implements OnInit {
   itemCode: string = '';
   obs:any;
   imagePath: any = 'assets/images/upload-icon.png';
+  loading: boolean = false;
 
   metadata = {
     types: manageItemTypes,
@@ -94,8 +95,12 @@ export class CreateItemComponent implements OnInit {
   }
 
   save() {
+    this.loading = true;
+
     if (this.formItem.invalid) {
       this.toastr.error('Fill in all required fields', 'Error');
+      this.loading = false;
+
       return;
     }
 
@@ -111,6 +116,7 @@ export class CreateItemComponent implements OnInit {
 
     this.obs.subscribe({
       next: (resp: any) => {
+        this.loading = false;
         this.toastr.success(this.itemCode == undefined ? 'Item created successfully' : 'Item updated successfully', 'Success');
 
         if(this.itemCode == undefined){
@@ -120,6 +126,8 @@ export class CreateItemComponent implements OnInit {
         }
       }, 
       error: (e: any) => {
+        this.loading = false;
+
         if(e.status == 400){
           e.error.errors.forEach((error : Error) => {
             this.toastr.error(error.errorMessage, 'Error');
